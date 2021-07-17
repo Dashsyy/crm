@@ -1,19 +1,17 @@
 import React from 'react'
-import Dashboard from './Dashboard'
+import Dashboards from './Dashboards'
 import Navigations from './Navigations'
 import CustomerTable from './CustomerTable'
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-} from "react-router-dom";
+import Chart from './Chart'
+
 function App() {
     return (
         <div>
             {/* <Dashboard /> */}
-            <Navigations />
+            {/* <Navigations /> */}
             {/* <ContactTable/> */}
+            
+            <Chart/>
         </div>
     )
 }

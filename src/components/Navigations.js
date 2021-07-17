@@ -24,6 +24,8 @@ import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import CustomerTable from './CustomerTable'
+import Reports from './Reports';
+import Dashboards from './Dashboards';
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -144,10 +146,6 @@ export default function PersistentDrawerLeft() {
                                 <Route>
                                     <Link to={text || "/404"} style={{ textDecoration: 'none' }}>
                                         <ListItemText primary={text} />
-                                        <Switch>
-                                            <Route path="/Reports">
-                                            </Route>
-                                        </Switch>
                                     </Link>
                                 </Route>
                             </ListItem>
@@ -163,11 +161,14 @@ export default function PersistentDrawerLeft() {
                     <div className={classes.drawerHeader} />
 
                     <Switch>
+                        <Route path="/Dashboard">
+                            <Dashboards/>
+                        </Route>
                         <Route path="/Customers">
                             <CustomerTable />
                         </Route>
-                        <Route path="/users">
-                            <CustomerTable />
+                        <Route path="/Reports">
+                            <Reports />
                         </Route>
                     </Switch>
 
