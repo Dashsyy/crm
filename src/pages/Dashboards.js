@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Box from './Box'
+import Box from '../components/model/Box'
 
 class Dashboards extends Component {
     render() {

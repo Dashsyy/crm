@@ -1,7 +1,6 @@
 import React from 'react'
 import { Doughnut } from 'react-chartjs-2';
-import '../index.css'
-import Crazy from './Crazy';
+import '../../index.css'
 const data = {
     labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
     datasets: [
@@ -36,7 +35,7 @@ export default function Chart() {
                 <Doughnut data={data} options={{ maintainAspectRatio: false }}/>
             </div>
             <div className="testContainer">
-                <Crazy options={{ maintainAspectRatio: false }}/>
+                
             </div>
         </div>
     )

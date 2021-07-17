@@ -21,11 +21,9 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
-import CustomerTable from './CustomerTable'
 import Reports from './Reports';
 import Dashboards from './Dashboards';
+import CustomerTable from '../components/model/CustomerTable';
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -98,6 +96,26 @@ export default function PersistentDrawerLeft() {
         setOpen(false);
     };
 
+    const colums=[
+        {
+            title:'Id',field:'CustomerId'
+        },
+        {
+            title:'Name',field:'Name'
+        },
+        {
+            title:'TelePhone',field:'TelePhone'
+        },
+        {
+            title:'Email',field:'Email'
+        },
+        {
+            title:'Last Visited',field:'LastVisited'
+        },
+        {
+            title:'Total Purchased',field:'TotalPurchased'
+        },
+    ]
 
     return (
         <Router>
@@ -165,7 +183,7 @@ export default function PersistentDrawerLeft() {
                             <Dashboards/>
                         </Route>
                         <Route path="/Customers">
-                            <CustomerTable />
+                            <CustomerTable/>
                         </Route>
                         <Route path="/Reports">
                             <Reports />
