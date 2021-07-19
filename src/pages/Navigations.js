@@ -5,6 +5,7 @@ import {
     Route,
     Link
 } from "react-router-dom";
+
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -95,28 +96,6 @@ export default function PersistentDrawerLeft() {
     const handleDrawerClose = () => {
         setOpen(false);
     };
-
-    const colums=[
-        {
-            title:'Id',field:'CustomerId'
-        },
-        {
-            title:'Name',field:'Name'
-        },
-        {
-            title:'TelePhone',field:'TelePhone'
-        },
-        {
-            title:'Email',field:'Email'
-        },
-        {
-            title:'Last Visited',field:'LastVisited'
-        },
-        {
-            title:'Total Purchased',field:'TotalPurchased'
-        },
-    ]
-
     return (
         <Router>
             <div className={classes.root}>

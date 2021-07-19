@@ -6,22 +6,23 @@ function Box() {
             <div class="flexbox">
                 <div class="item">
                     <div class="content">
-                        <p>11111</p>
+                        <p>Sales Report-Chart</p>
+                        <p>Most sales items,total purchase</p>
                     </div>
                 </div>
                 <div class="item">
                     <div class="content">
-                        <p>22222</p>
+                        <p>Profit</p>
                     </div>
                 </div>
                 <div class="item">
                     <div class="content">
-                        <p>33333</p>
+                        <p>Total customer</p>
                     </div>
                 </div>
                 <div class="item">
                     <div class="content">
-                        <p>44444</p>
+                        <p>Top Customer</p>
                     </div>
                 </div>
             </div>

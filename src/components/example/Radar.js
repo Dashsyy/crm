@@ -24,14 +24,7 @@ const RadarChart = () => (
   <>
     <div className='header'>
       <h1 className='title'>Radar Chart</h1>
-      <div className='links'>
-        <a
-          className='btn btn-gh'
-          href='https://github.com/reactchartjs/react-chartjs-2/blob/master/example/src/charts/Radar.js'
-        >
-          Github Source
-        </a>
-      </div>
+      
     </div>
     <Radar data={data} options={options} />
   </>

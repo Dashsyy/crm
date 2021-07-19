@@ -32,14 +32,7 @@ const PieChart = () => (
   <>
     <div className='header'>
       <h1 className='title'>Pie Chart</h1>
-      <div className='links'>
-        <a
-          className='btn btn-gh'
-          href='https://github.com/reactchartjs/react-chartjs-2/blob/master/example/src/charts/Pie.js'
-        >
-          Github Source
-        </a>
-      </div>
+      
     </div>
     <Pie data={data} />
   </>

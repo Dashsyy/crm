@@ -1,4 +1,4 @@
-import { Divider } from '@material-ui/core'
+import { Divider, Drawer } from '@material-ui/core'
 import React from 'react'
 import Chart from './components/charttype/Chart'
 import ClickEvents from './components/example/ClickEvents'
@@ -27,14 +27,18 @@ function App() {
             
             {/* <Chart/> */}
             {/* <div className="flexbox item">
+            <h1>-------------------------------</h1>
             <h1>Chart that going to use </h1>
+            <h1>-------------------------------</h1>
             <DoughnutChart/>
             <Horizontalbar/>
             <GroupedBar/>
             <Divider/>
             <Line/>
             <VerticalBar/>
+            <h1>-------------------------------</h1>
             <h1>Chart that not going to use </h1>
+            <h1>-------------------------------</h1>
             <ClickEvents/>
             <Dynamic/>
             <MultiAxisLine/>
@@ -48,8 +52,10 @@ function App() {
             <h1>Chart testing</h1>
             <StackedBar/>
             </div> */}
-            {/* <CustomerTable/>
-             */}
+            
+
+            {/* <CustomerTable/> */}
+            
             
         </div>
     )
