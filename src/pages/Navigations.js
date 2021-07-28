@@ -24,7 +24,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Reports from './Reports';
 import Dashboards from './Dashboards';
-import CustomerTable from '../components/model/CustomerTable';
+import Logout from './Logout';
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -84,7 +84,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function PersistentDrawerLeft() {
+export default function Navigations() {
     const classes = useStyles();
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
@@ -137,7 +137,7 @@ export default function PersistentDrawerLeft() {
                     <Divider />
 
                     <List>
-                        {['Dashboard', 'Customers', 'Reports'].map((text, index) => (
+                        {['Dashboard', 'Customers', 'Reports','Log out'].map((text, index) => (
                             <ListItem button key={text}>
                                 <ListItemIcon>{index.IconButton}</ListItemIcon>
                                 <Route>
@@ -158,14 +158,20 @@ export default function PersistentDrawerLeft() {
                     <div className={classes.drawerHeader} />
 
                     <Switch>
+                        <Route exact path="/">
+                            <Dashboards />
+                        </Route>
                         <Route path="/Dashboard">
-                            <Dashboards/>
+                            <Dashboards />
                         </Route>
                         <Route path="/Customers">
-                            <CustomerTable/>
+                            {/* <CustomerTable/> */}
                         </Route>
                         <Route path="/Reports">
                             <Reports />
+                        </Route>
+                        <Route path="/Log out">
+                            <Logout />
                         </Route>
                     </Switch>
 
