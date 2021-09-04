@@ -21,14 +21,14 @@ const data = {
   ],
 };
 
-const options =  {
-    plugins: {
-        legend: {
-           labels:{
-            color: 'white'
-           }
-        }
+const options = {
+  plugins: {
+    legend: {
+      labels: {
+        color: 'white'
+      }
     }
+  }
 }
 
 const DoughnutChart = () => (

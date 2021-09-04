@@ -137,9 +137,9 @@ export default function Navigations() {
                     <Divider />
 
                     <List>
-                        {['Dashboard', 'Customers', 'Reports','Log out'].map((text, index) => (
+                        {['Dashboard', 'Customers', 'Reports'].map((text, index) => (
                             <ListItem button key={text}>
-                                <ListItemIcon>{index.IconButton}</ListItemIcon>
+                                {/* <ListItemIcon>{index.IconButton}</ListItemIcon> */}
                                 <Route>
                                     <Link to={text || "/404"} style={{ textDecoration: 'none' }}>
                                         <ListItemText primary={text} />

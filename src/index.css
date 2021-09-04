@@ -22,14 +22,31 @@ code {
   box-sizing: border-box;
   margin: 0px -10px;
 }
+.flexbox-nowrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  margin: 0px -10px;
+  margin-left: 15%;
+  margin-right: 15%;
+}
 
 .item {
+  box-sizing: border-box;
+  width: 50%;
+  height: 50%;
+  margin-bottom: 20px;
+  padding: 50px;
+}
+.item-nowrap {
   box-sizing: border-box;
   width: 50%;
   margin-bottom: 20px;
   padding: 0px 10px;
 }
-
 .content {
   color: #242424;
   background-color: lightblue;
@@ -40,11 +57,4 @@ code {
   padding: 10px;
   border-radius: 4px;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-}
-
-.testContainer {
-  background-color: transparent;
-  width: 50%;
-  height: 300px;
-  border: 4px dotted blue;
 }

@@ -1,23 +1,25 @@
 import React from 'react'
 import '../../index.css'
+import PieSales from '../chart/PieSales'
+import Line from '../chart/Line'
+import GroupedBar from '../chart/GroupedBar'
 function Box() {
     return (
         <div className="Container">
             <div class="flexbox">
                 <div class="item">
                     <div class="content">
-                        <p>Sales Report-Chart</p>
-                        <p>Most sales items,total purchase</p>
+                        <PieSales />
                     </div>
                 </div>
                 <div class="item">
                     <div class="content">
-                        <p>Profit</p>
+                        <Line/>
                     </div>
                 </div>
                 <div class="item">
                     <div class="content">
-                        <p>Total customer</p>
+                        <GroupedBar/>
                     </div>
                 </div>
                 <div class="item">
