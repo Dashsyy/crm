@@ -23,8 +23,8 @@ class Dashboards extends Component {
                         </div>
                         <div class="item-nowrap">
                             <div class="content">
-                            <p>Today Customer</p>
-                                <h1>41</h1>
+                            <p>Customer in September</p>
+                                <h1>12</h1>
                             </div>
                         </div>
                         <div class="item-nowrap">

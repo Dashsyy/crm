@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Route, Router, withRouter } from 'react-router-dom';
-import Dashboards from './Dashboards';
+import Dashboards from '../../pages/Dashboards';
 
 var selectedTab;
 export default class Login extends Component {

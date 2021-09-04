@@ -6,7 +6,7 @@ import Navigations from './pages/Navigations'
 function App() {
         return (
                 <div>
-                        <Dashboards />
+                        <Navigations/>
                 </div>
         )
 }

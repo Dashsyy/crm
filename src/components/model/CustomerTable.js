@@ -29,6 +29,7 @@ export default function SimpleTable() {
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
     };
+    //axios here
     fetch('https://fakestoreapi.com/products?limit=20')
         .then(response => response.json())
         .then(data => setUsers(data))
@@ -46,10 +47,10 @@ export default function SimpleTable() {
     return (
         <>
             <TableContainer component={Paper}>
-                <Table className={classes.table} aria-label="simple table">
+                <Table className={classes.table} aria-label="customer table">
                     <TableHead>
                         <TableRow>
-                            <TableCell className={classes.background}>Dessert (100g serving)</TableCell>
+                            <TableCell width="30%" className={classes.background}>Dessert (100g serving)</TableCell>
                             <TableCell align="right">Title</TableCell>
                             <TableCell align="right">Fat&nbsp;(g)</TableCell>
                             <TableCell align="right">Carbs&nbsp;(g)</TableCell>

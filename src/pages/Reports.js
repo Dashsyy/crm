@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import DoughnutChart from '../components/chart/Doughnut'
-import DemoTable from '../components/model/DemoTable'
-
 
 class Reports extends Component {
     render() {
@@ -27,7 +25,6 @@ class Reports extends Component {
                         <div class="item">
                             <div class="content">
                                 <p>Top Customer</p>
-                                <DemoTable/>
                             </div>
                         </div>
                     </div>

@@ -3,6 +3,7 @@ import '../../index.css'
 import PieSales from '../chart/PieSales'
 import Line from '../chart/Line'
 import GroupedBar from '../chart/GroupedBar'
+import TopCustomer from '../model/TopCustomer'
 function Box() {
     return (
         <div className="Container">
@@ -24,7 +25,7 @@ function Box() {
                 </div>
                 <div class="item">
                     <div class="content">
-                        <p>Top Customer</p>
+<TopCustomer/>
                     </div>
                 </div>
             </div>

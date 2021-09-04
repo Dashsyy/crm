@@ -24,15 +24,14 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Reports from './Reports';
 import Dashboards from './Dashboards';
+import CustomerTable from '../components/model/CustomerTable'
 
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormGroup from '@material-ui/core/FormGroup';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 
 
-import Logout from './Logout';
+import Logout from '../components/Auth/Logout';
 import { Button } from '@material-ui/core';
 const drawerWidth = 240;
 
@@ -129,9 +128,9 @@ export default function Navigations() {
 
     return (
         <Router>
-        
+
             <div className={classes.root}>
-                
+
                 {/* <CssBaseline /> */}
                 <AppBar
                     position="fixed"
@@ -230,7 +229,11 @@ export default function Navigations() {
                             <Dashboards />
                         </Route>
                         <Route path="/Customers">
-                            {/* <CustomerTable/> */}
+                            <div class="item-customer">
+                                <div class="content">
+                                    <CustomerTable />
+                                </div>
+                            </div>
                         </Route>
                         <Route path="/Reports">
                             <Reports />
