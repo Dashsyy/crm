@@ -33,7 +33,9 @@ function AddCustomer() {
         "title": "",
         "firstname": "",
         "lastname": "",
+        "phone":"",
         "email": "",
+        "totalpurchase":"",
         "tier": ""
     })
     function submit(e) {
@@ -43,7 +45,9 @@ function AddCustomer() {
             title: data.title,
             firstname: data.firstname,
             lastname: data.lastname,
+            phone: data.phone,
             email: data.email,
+            totalpurchase: data.totalpurchase,
             tier: data.tier,
         }).then(res => {
             console.log(res.data)
@@ -69,13 +73,14 @@ function AddCustomer() {
                 alignItems="center"
             >
                 <form noValidate autoComplete="off" onSubmit={(e) => submit(e)}>
-                    <h2>Complete the form below</h2>
-                    <div className={classes.align}>
+                <div className={classes.align}>
                         <TextField onChange={(e) => handle(e)} id="gender" value={data.gender} type="text" label="Gender" variant="outlined" />
                         <TextField onChange={(e) => handle(e)} id="title" value={data.title} type="text" label="Title" variant="outlined" />
                         <TextField onChange={(e) => handle(e)} id="firstname" value={data.firstname} type="text" label="First name" variant="outlined" />
                         <TextField onChange={(e) => handle(e)} id="lastname" value={data.lastname} type="text" label="Last name" variant="outlined" />
+                        <TextField onChange={(e) => handle(e)} id="phone" value={data.phone} type="number" label="Phone Number" variant="outlined" />
                         <TextField onChange={(e) => handle(e)} id="email" value={data.email} type="text" label="Email" variant="outlined" />
+                        <TextField onChange={(e) => handle(e)} id="totalpurchase" value={data.totalpurchase} type="text" label="Total Purchase" variant="outlined" />
                         <TextField onChange={(e) => handle(e)} id="tier" value={data.tier} type="text" label="Tier" variant="outlined" />
                         <button>Submit</button>
                         <button onClick={handleCancelClick}>Cancel</button>
