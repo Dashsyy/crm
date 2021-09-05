@@ -35,6 +35,7 @@ import Menu from '@material-ui/core/Menu';
 
 import Logout from '../components/Auth/Logout';
 import { Button } from '@material-ui/core';
+import AddCustomer from '../components/model/AddCustomer';
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -242,6 +243,9 @@ export default function Navigations() {
                             <Reports />
                         </Route>
                         <Route path="/Logout">
+                        </Route>
+                        <Route path="/AddCustomer">
+                            <AddCustomer/>
                         </Route>
                     </Switch>
 

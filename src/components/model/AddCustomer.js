@@ -3,8 +3,14 @@ import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import Axios from 'axios';
 import { Grid } from '@material-ui/core';
-
-
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+    useHistory,
+} from "react-router-dom";
+import CustomerTable from './CustomerTable'
 const useStyles = makeStyles((theme) => ({
     root: {
         // margin: theme.spacing(2),
@@ -20,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function Sumit() {
+function AddCustomer() {
     const url = "http://localhost:5000/api/v1/customer"
     const [data, setData] = useState({
         "gender": "",
@@ -43,13 +49,16 @@ function Sumit() {
             console.log(res.data)
         })
     }
+    const history = useHistory({ forceRefresh: true });
     function handle(e) {
         const newdata = { ...data }
         newdata[e.target.id] = e.target.value
         setData(newdata)
 
     }
-
+    function handleCancelClick() {
+        history.push("/Customers")
+    }
     const classes = useStyles();
     return (
         <div>
@@ -69,6 +78,9 @@ function Sumit() {
                         <TextField onChange={(e) => handle(e)} id="email" value={data.email} type="text" label="Email" variant="outlined" />
                         <TextField onChange={(e) => handle(e)} id="tier" value={data.tier} type="text" label="Tier" variant="outlined" />
                         <button>Submit</button>
+                        <button onClick={handleCancelClick}>Cancel</button>
+
+                        
                     </div>
 
                 </form>
@@ -78,4 +90,4 @@ function Sumit() {
     )
 }
 
-export default Sumit
+export default AddCustomer

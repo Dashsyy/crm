@@ -8,8 +8,7 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import TablePagination from "@material-ui/core/TablePagination";
 import Paper from "@material-ui/core/Paper";
-import { DataGrid } from "@material-ui/data-grid";
-import { Button } from "@material-ui/core";
+
 import {
     BrowserRouter as Router,
     Switch,
@@ -17,7 +16,7 @@ import {
     Link,
     useHistory,
 } from "react-router-dom";
-import Dashboards from "../../pages/Dashboards";
+import AddCustomer from "./AddCustomer";
 const useStyles = makeStyles({
     table: {
         minWidth: 650
@@ -56,13 +55,17 @@ export default function SimpleTable() {
         rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
     const history = useHistory({ forceRefresh: true });
     function handleClick() {
-        history.push("/Dashboard")
+        history.push("/AddCustomer")
+    }
+    function handleOnclick() {
+        alert(rows.id);
     }
     return (
         <><button onClick={handleClick}>Add new Customer</button>
-            <Route path="/Dashboard" component={Dashboards} />
+            <Route path="/AddCustomer" component={AddCustomer} />
             <TableContainer component={Paper}>
-                <Table className={classes.table} aria-label="customer table">
+                <Table className={classes.table} aria-label="customer table"
+                >
                     <TableHead>
                         <TableRow>
                             <TableCell >Name</TableCell>
@@ -87,11 +90,10 @@ export default function SimpleTable() {
                                     <TableCell align="right">{data.totalpurchase}</TableCell>
                                     <TableCell align="right">{data.registereddate}</TableCell>
                                     <TableCell align="right">{data.tier}</TableCell>
-                                    <TableCell align="right" ><button /></TableCell>
+                                    <TableCell align="right" ><button onClick={()=>{alert(data.id)}}>{data.name}</button>
+                                    <button onClick={()=>{alert(data.id)}}>Delete</button></TableCell>
                                 </TableRow>
                             ))}
-
-
                         {emptyRows > 0 && (
                             <TableRow style={{ height: 53 * emptyRows }}>
                                 <TableCell colSpan={1} />
