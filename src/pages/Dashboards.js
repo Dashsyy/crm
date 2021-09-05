@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import Box from '../components/model/Box'
-
 //logo
+
 class Dashboards extends Component {
+
     render() {
         return (
             <div>
@@ -17,19 +18,19 @@ class Dashboards extends Component {
                         </div>
                         <div class="item-nowrap">
                             <div class="content">
-                            <p>Today Expense</p>
+                                <p>Today Expense</p>
                                 <h1>$ 56</h1>
                             </div>
                         </div>
                         <div class="item-nowrap">
                             <div class="content">
-                            <p>Customer in September</p>
+                                <p>Customer in September</p>
                                 <h1>12</h1>
                             </div>
                         </div>
                         <div class="item-nowrap">
                             <div class="content">
-                            <p>Popular Item</p>
+                                <p>Popular Item</p>
                                 <h1>Jean</h1>
                             </div>
                         </div>

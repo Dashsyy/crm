@@ -3,7 +3,8 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Link
+    Link,
+    useHistory,
 } from "react-router-dom";
 
 import clsx from 'clsx';
@@ -29,6 +30,7 @@ import CustomerTable from '../components/model/CustomerTable'
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
+
 
 
 import Logout from '../components/Auth/Logout';
@@ -104,6 +106,9 @@ export default function Navigations() {
     const [auth, setAuth] = React.useState(true);
     const [anchorEl, setAnchorEl] = React.useState(null);
     const isOpen = Boolean(anchorEl);
+    // const history  = createBrowserHistory({forceRefresh:true})
+    const history = useHistory({ forceRefresh: true });
+
 
 
     // State for accont setting
@@ -124,7 +129,9 @@ export default function Navigations() {
     const handleDrawerClose = () => {
         setOpen(false);
     };
-
+    function handleClick() {
+        history.push("/Dashboard")
+    }
 
     return (
         <Router>
@@ -220,16 +227,12 @@ export default function Navigations() {
                     })}
                 >
                     <div className={classes.drawerHeader} />
-
                     <Switch>
-                        {/* <Route exact path="/">
-                            <Dashboards />
-                        </Route> */}
                         <Route path="/Dashboard">
                             <Dashboards />
                         </Route>
                         <Route path="/Customers">
-                            <div class="item-customer">
+                            <div class="item-customer" >
                                 <div class="content">
                                     <CustomerTable />
                                 </div>
@@ -238,12 +241,12 @@ export default function Navigations() {
                         <Route path="/Reports">
                             <Reports />
                         </Route>
-                        <Route path="/Log out">
+                        <Route path="/Logout">
                         </Route>
                     </Switch>
 
                 </main>
             </div >
-        </Router>
+        </Router >
     );
 }

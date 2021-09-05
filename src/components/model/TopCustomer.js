@@ -14,7 +14,7 @@ const useStyles = makeStyles({
         minWidth: 250
     },
     background: {
-        background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)'
+        // background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)'
     }
 });
 function createData(name, title, fat, carbs, protein) {
@@ -29,9 +29,9 @@ export default function SimpleTable() {
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
     };
-    fetch('https://fakestoreapi.com/products?limit=20')
-        .then(response => response.json())
-        .then(data => setUsers(data))
+    // fetch('https://fakestoreapi.com/products?limit=20')
+    //     .then(response => response.json())
+    //     .then(data => setUsers(data))
 
     const rows = [
         { id:1,firstName: 'Jon', tier: 'Sliver' },
