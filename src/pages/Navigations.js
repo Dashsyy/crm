@@ -26,7 +26,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Reports from './Reports';
 import Dashboards from './Dashboards';
 import CustomerTable from '../components/model/CustomerTable'
-
+import UpdateCustomer from '../components/model/UpdateCustomer'
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
@@ -245,10 +245,12 @@ export default function Navigations() {
                         <Route path="/Logout">
                         </Route>
                         <Route path="/AddCustomer">
-                            <AddCustomer/>
+                            <AddCustomer />
+                        </Route>
+                        <Route path="/updateCustomer">
+                            <UpdateCustomer />
                         </Route>
                     </Switch>
-
                 </main>
             </div >
         </Router >

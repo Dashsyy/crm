@@ -16,6 +16,7 @@ import {
     useHistory,
 } from "react-router-dom";
 import AddCustomer from "./AddCustomer";
+import SearchBar from "material-ui-search-bar";
 const useStyles = makeStyles({
     table: {
         minWidth: 650
@@ -30,6 +31,8 @@ function createData(id, name, phone, email, totalpurchase, registereddate, tier)
 
 export default function SimpleTable() {
     const classes = useStyles();
+    const [rows, setRows] = React.useState([]);
+    const [searched, setSearched] = React.useState("");
     const [users, setUsers] = React.useState([]);
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
@@ -42,9 +45,8 @@ export default function SimpleTable() {
         .then(data => data.customers)
         .then(datas => setUsers(datas))
 
-    const rows = users.map(s => createData(s._id, s.name.firstname + s.name.lastname, s.phone, s.email, s.totalpurchase,s.date.slice(0,10), s.tier),);
-
-    const handleChangeRowsPerPage = event => {
+        const rowsData = users.map(s => createData(s._id, s.name.firstname + s.name.lastname, s.phone, s.email, s.totalpurchase, s.date.slice(0, 10), s.tier),);
+        const handleChangeRowsPerPage = event => {
         setRowsPerPage(parseInt(event.target.value, 10));
         setPage(0);
     };
@@ -54,9 +56,26 @@ export default function SimpleTable() {
     function handleClick() {
         history.push("/AddCustomer")
     }
+
+    const requestSearch = (searchedVal) => {
+        const filteredRows = rows.filter((row) => {
+            return row.name.toLowerCase().includes(searchedVal.toLowerCase());
+        });
+        setRows(filteredRows);
+    };
+
+    const cancelSearch = () => {
+        setSearched("");
+        requestSearch(searched);
+    };
     return (
         <><button onClick={handleClick}>Add new Customer</button>
             <Route path="/AddCustomer" component={AddCustomer} />
+            <SearchBar
+                value={searched}
+                onChange={(searchVal) => requestSearch(searchVal)}
+                onCancelSearch={() => cancelSearch()}
+            />
             <TableContainer component={Paper}>
                 <Table className={classes.table} aria-label="customer table"
                 >
@@ -72,7 +91,7 @@ export default function SimpleTable() {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {rows
+                        {rowsData
                             .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                             .map((data, index) => (
                                 <TableRow key={data.id} >
@@ -98,7 +117,7 @@ export default function SimpleTable() {
                 <TablePagination
                     rowsPerPageOptions={[5, 10, 25]}
                     component="div"
-                    count={rows.length}
+                    count={rowsData.length}
                     rowsPerPage={rowsPerPage}
                     page={page}
                     onChangePage={handleChangePage}
