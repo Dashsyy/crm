@@ -8,6 +8,8 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import TablePagination from "@material-ui/core/TablePagination";
 import Paper from "@material-ui/core/Paper";
+import Text from './Text'
+
 import {
     BrowserRouter as Router,
     Switch,
@@ -17,6 +19,8 @@ import {
 } from "react-router-dom";
 import AddCustomer from "./AddCustomer";
 import SearchBar from "material-ui-search-bar";
+import UpdateCustomer from "./UpdateCustomer";
+import { IdProvider } from "./appContext"
 const useStyles = makeStyles({
     table: {
         minWidth: 650
@@ -45,8 +49,8 @@ export default function SimpleTable() {
         .then(data => data.customers)
         .then(datas => setUsers(datas))
 
-        const rowsData = users.map(s => createData(s._id, s.name.firstname + s.name.lastname, s.phone, s.email, s.totalpurchase, s.date.slice(0, 10), s.tier),);
-        const handleChangeRowsPerPage = event => {
+    const rowsData = users.map(s => createData(s._id, s.name.firstname + s.name.lastname, s.phone, s.email, s.totalpurchase, s.date.slice(0, 10), s.tier),);
+    const handleChangeRowsPerPage = event => {
         setRowsPerPage(parseInt(event.target.value, 10));
         setPage(0);
     };
@@ -56,12 +60,21 @@ export default function SimpleTable() {
     function handleClick() {
         history.push("/AddCustomer")
     }
-
+    function handleClickUpdate(props) {
+        // history.push("/UpdateCustomer");
+        history.push({
+            pathname: '/UpdateCustomer',
+            state:{
+                currentId:props
+            }
+        })
+        alert(props)
+    }
     const requestSearch = (searchedVal) => {
-        const filteredRows = rows.filter((row) => {
+        const filteredRows = rowsData.filter((row) => {
             return row.name.toLowerCase().includes(searchedVal.toLowerCase());
         });
-        setRows(filteredRows);
+        // setUsers(filteredRows);
     };
 
     const cancelSearch = () => {
@@ -71,6 +84,9 @@ export default function SimpleTable() {
     return (
         <><button onClick={handleClick}>Add new Customer</button>
             <Route path="/AddCustomer" component={AddCustomer} />
+            <IdProvider value="From parent">
+                {/* <Text /> */}
+            </IdProvider>
             <SearchBar
                 value={searched}
                 onChange={(searchVal) => requestSearch(searchVal)}
@@ -102,7 +118,7 @@ export default function SimpleTable() {
                                     <TableCell align="right">{data.registereddate}</TableCell>
                                     <TableCell align="right">{data.tier}</TableCell>
                                     <TableCell align="right" >
-                                        <button onClick={() => { alert(data.id) }}>Edit</button>
+                                        <button onClick={() => { handleClickUpdate(data.id) }}>Edit</button>
                                         <button onClick={() => { alert(data.id) }}>Delete</button>
                                     </TableCell>
                                 </TableRow>

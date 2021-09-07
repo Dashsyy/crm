@@ -5,12 +5,15 @@ import Axios from 'axios';
 import { Grid } from '@material-ui/core';
 import {
     BrowserRouter as Router,
+    useLocation,
     Switch,
     Route,
     Link,
     useHistory,
 } from "react-router-dom";
-import CustomerTable from './CustomerTable'
+import CustomerTable from './CustomerTable';
+import {IdConsumer} from './appContext';
+import Text from './Text'
 const useStyles = makeStyles((theme) => ({
     root: {
         // margin: theme.spacing(2),
@@ -26,28 +29,40 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function AddCustomer() {
+const UpdateCustomer = props =>{
     const url = "http://localhost:5000/api/v1/customer"
     const [data, setData] = useState({
+        '_id': "",
         "gender": "",
         "title": "",
         "firstname": "",
         "lastname": "",
-        "phone":"",
+        "phone": "",
         "email": "",
-        "totalpurchase":"",
+        "totalpurchase": "",
         "tier": ""
     })
+    var resultsId;
+
+
+        const location = useLocation();
+
+        React.useEffect(() => {
+           console.log(location.state.currentId);
+        }, [location]);
+
+
     function submit(e) {
         e.preventDefault();
         Axios.patch(url, {
+            _id: data.id,
             gender: data.gender,
             title: data.title,
             firstname: data.firstname,
             lastname: data.lastname,
-            dob:data.dob,
+            dob: data.dob,
             email: data.email,
-            totalpurchase:data.totalpurchase,
+            totalpurchase: data.totalpurchase,
             tier: data.tier,
         }).then(res => {
             console.log(res.data)
@@ -65,17 +80,18 @@ function AddCustomer() {
     }
     const classes = useStyles();
     return (
-        <div>
-            <Grid
+        <>
+            {location.state.currentId}
+            {/* <Grid
                 container
                 direction="column"
                 justifyContent="space-between"
                 alignItems="center"
             >
                 <form noValidate autoComplete="off" onSubmit={(e) => submit(e)}>
-                    <h2>Update Customer Info</h2>
+                    <h2>Update Customer Info{props.name} Text</h2>
                     <div className={classes.align}>
-                    <TextField onChange={(e) => handle(e)} id="gender" value={data.gender} type="text" label="Gender" variant="outlined" />
+                        <TextField onChange={(e) => handle(e)} id="gender" value={data.gender} type="text" label="Gender" variant="outlined" />
                         <TextField onChange={(e) => handle(e)} id="title" value={data.title} type="text" label="Title" variant="outlined" />
                         <TextField disabled onChange={(e) => handle(e)} id="firstname" value={data.firstname} type="text" label="First name" variant="outlined" />
                         <TextField disabled onChange={(e) => handle(e)} id="lastname" value={data.lastname} type="text" label="Last name" variant="outlined" />
@@ -85,15 +101,13 @@ function AddCustomer() {
                         <TextField onChange={(e) => handle(e)} id="tier" value={data.tier} type="text" label="Tier" variant="outlined" />
                         <button>Submit</button>
                         <button onClick={handleCancelClick}>Cancel</button>
-
-
                     </div>
 
                 </form>
-            </Grid>
+            </Grid> */}
 
-        </div>
+        </>
     )
 }
 
-export default AddCustomer
+export default UpdateCustomer
